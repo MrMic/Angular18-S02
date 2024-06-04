@@ -1,4 +1,4 @@
-## Angular 08 -S02 - Udemy
+## Angular 18 -S02 - Udemy
 
 
 # Essentials
