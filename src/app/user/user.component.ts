@@ -13,6 +13,8 @@ export class UserComponent {
   @Input({ required: true }) avatar!: string;
   @Input({ required: true }) name!: string;
   @Output() select = new EventEmitter();
+  // * INFO: For use with Signal
+  // select = output<string>();
 
   // INFO: For use with Signal
   // avatar = input.required<string>();
