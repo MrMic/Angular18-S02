@@ -1,5 +1,18 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
+// ______________________________________________________________________
+// type User = {
+//   id: string;
+//   avatar: string;
+//   name: string;
+// }
+
+interface User {
+  id: string;
+  avatar: string;
+  name: string;
+}
+// ______________________________________________________________________
 
 @Component({
   selector: 'app-user',
@@ -9,11 +22,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-  @Input({ required: true }) user!: {
-    id: string;
-    avatar: string;
-    name: string;
-  };
+  @Input({ required: true }) user!: User;
   @Output() select = new EventEmitter<string>();
   // * INFO: For use with Signal
   // select = output<string>();
