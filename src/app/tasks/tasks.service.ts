@@ -16,7 +16,7 @@ export class TasksService {
     },
     {
       id: 't2',
-      userId: 'u3',
+      userId: 'u2',
       title: 'Build first prototype',
       summary: 'Build a first prototype of the online shop website',
       dueDate: '2024-05-31',
@@ -30,6 +30,14 @@ export class TasksService {
       dueDate: '2024-06-15',
     },
   ];
+
+  constructor() {
+    const tasks = localStorage.getItem('tasks');
+
+    if (tasks) {
+      this.tasks = JSON.parse(tasks);
+    }
+  }
 
   // ______________________________________________________________________
   getUserTasks(userId: string) {
@@ -45,10 +53,18 @@ export class TasksService {
       summary: taskData.summary,
       dueDate: taskData.dueDate,
     });
+    this.saveTasks();
   }
 
   // ______________________________________________________________________
   removeTask(id: string) {
     this.tasks = this.tasks.filter((task) => task.id !== id);
+    this.saveTasks();
   }
+
+  // ______________________________________________________________________
+  private saveTasks() {
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+  }
+
 }
